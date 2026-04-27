@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project 1 - Q2 生存分析博客</title>
+  <style>
+    :root { --fg:#1f2937; --muted:#4b5563; --line:#e5e7eb; --accent:#2563eb; --bg:#ffffff; }
+    body { margin:0; font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color:var(--fg); background:var(--bg); line-height:1.7; }
+    .wrap { max-width: 1000px; margin: 36px auto 60px; padding: 0 18px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    h1,h2,h3 { line-height:1.3; }
+    .muted { color: var(--muted); }
+    .box { border-left: 4px solid var(--accent); background:#f8fbff; padding: 10px 14px; margin: 14px 0; }
+    .grid2 { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin: 14px 0 22px; }
+    .grid3 { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 14px 0 22px; }
+    figure { margin:0; border:1px solid var(--line); border-radius:10px; padding:10px; background:#fafafa; }
+    img { width:100%; height:auto; display:block; border-radius:6px; }
+    figcaption { margin-top:8px; font-size:14px; color:var(--muted); }
+    ul { padding-left: 20px; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <p><a href="/">← 返回主页</a></p>
+    <h1>Project 1 - Q2 生存分析博客</h1>
+    <p class="muted">对应课程要求 Q2(2)：说明生存分析过程并记录结果；并作为 Q2(4) 的博客页面证据。</p>
+
+    <h2>1. 任务目标与数据</h2>
+    <p>本项目使用 Telco churn 数据，目标是用生存分析方法刻画客户留存时间，解释影响流失的关键因素，并将生存概率用于 CLV 估计。</p>
+    <ul>
+      <li>分析数据集（Silver）规模：<strong>3351</strong></li>
+      <li>方法：Kaplan-Meier、Cox PH、AFT、CLV/NPV</li>
+      <li>实现文件：<code>Q2_survival_analysis_rewrite.ipynb</code></li>
+    </ul>
+
+    <h2>2. 生存分析流程</h2>
+    <ul>
+      <li>数据清洗与建模字段准备（含时间与事件定义）</li>
+      <li>总体与分组 Kaplan-Meier 曲线及 log-rank 检验</li>
+      <li>Cox 比例风险模型拟合与风险比解释</li>
+      <li>AFT 模型作为对照时间建模</li>
+      <li>基于生存曲线进行 CLV 累计 NPV 估计</li>
+    </ul>
+
+    <h2>3. 核心结果</h2>
+    <div class="box">
+      <ul>
+        <li>KM 中位生存时间：<strong>34.0 个月</strong></li>
+        <li>DSL vs Fiber optic 的 log-rank：<strong>p = 5.241449e-07</strong></li>
+        <li>Cox concordance：<strong>0.64</strong></li>
+        <li>CLV 累计 NPV（12/24/36 月）：<strong>320.31 / 589.49 / 818.84</strong></li>
+      </ul>
+    </div>
+
+    <h3>3.1 Kaplan-Meier 曲线</h3>
+    <div class="grid2">
+      <figure>
+        <img src="./figs/q2_km_population.png" alt="km population" />
+        <figcaption>总体 Kaplan-Meier 生存曲线。</figcaption>
+      </figure>
+      <figure>
+        <img src="./figs/q2_km_by_internet_service.png" alt="km by internet service" />
+        <figcaption>按 InternetService 分组的生存曲线。</figcaption>
+      </figure>
+    </div>
+
+    <h3>3.2 Cox / AFT / CLV 结果图</h3>
+    <div class="grid3">
+      <figure>
+        <img src="./figs/q2_cox_hazard_ratios.png" alt="cox hr" />
+        <figcaption>Cox 风险比（Hazard Ratio）。</figcaption>
+      </figure>
+      <figure>
+        <img src="./figs/q2_aft_coefficients.png" alt="aft coeff" />
+        <figcaption>AFT 系数图。</figcaption>
+      </figure>
+      <figure>
+        <img src="./figs/q2_clv_cumulative_npv_bar.png" alt="clv npv" />
+        <figcaption>CLV 累计 NPV 对比。</figcaption>
+      </figure>
+    </div>
+
+    <figure style="max-width: 700px;">
+      <img src="./figs/q2_clv_survival_curve.png" alt="clv survival curve" />
+      <figcaption>用于 CLV 估计的生存概率轨迹。</figcaption>
+    </figure>
+
+    <h2>4. Q2(3) Text-to-SQL 补充</h2>
+    <p>在 MySQL + LLM 的实验中，主要失败类型包括：分位函数方言不兼容、加权中位数查询实现错误、MAD 双层中位数实现失败。最终均通过窗口函数改写得到可执行 SQL。</p>
+
+    <h2>5. 结论</h2>
+    <p>Q2 已完成从生存曲线到风险建模再到价值估计的完整链路。业务上可据此识别高风险群体并制定差异化留存策略。</p>
+  </main>
+</body>
+</html>

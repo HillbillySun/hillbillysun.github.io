@@ -1,5 +1,9 @@
 #### 课程项目经历
 
+- **Spark Project 1：Q2 生存分析博客（GitHub Pages）**
+  - 博客地址：<a href="/project1-q2-survival/" target="_blank">https://hillbillysun.github.io/project1-q2-survival/</a>
+  - 内容包含 Q2(2) 要求的生存分析流程与结果汇总（KM / Cox / AFT / CLV）及关键图表。
+
 - **数据科学导论：Covid-19 的发展及影响因子研究**
   - 基于全球 Covid-19 数据开展跨国对比与趋势分析，研究公共卫生条件、经济发展水平（如 HDI）、疫苗接种率与政策强度对感染率、死亡率和重症指标的影响。
   - 通过热力图、KDE、箱线图等可视化与相关性分析总结关键影响因素，形成防控启示。
