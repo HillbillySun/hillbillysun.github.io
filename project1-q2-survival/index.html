@@ -24,18 +24,33 @@
 <body>
   <main class="wrap">
     <p><a href="/">← 返回主页</a></p>
-    <h1>Project 1 - Q2 生存分析博客</h1>
-    <p class="muted">对应课程要求 Q2(2)：说明生存分析过程并记录结果；并作为 Q2(4) 的博客页面证据。</p>
+    <h1>Project 1 - Q2 生存分析：一份从“谁会流失”到“如何留存”的数据报告</h1>
+    <p class="muted">对应课程要求 Q2(2)：完整记录生存分析过程与结果，并以博客形式发布（Q2(4)）。</p>
 
-    <h2>1. 任务目标与数据</h2>
-    <p>本项目使用 Telco churn 数据，目标是用生存分析方法刻画客户留存时间，解释影响流失的关键因素，并将生存概率用于 CLV 估计。</p>
+    <h2>1. 业务背景：为什么要做这件事？</h2>
+    <p>
+      电信业务的核心问题不是“有没有流失”，而是“客户会在什么时候流失、哪些人更容易提前流失、我们应该优先保住谁”。
+      因此我没有只做普通分类，而是采用生存分析来刻画客户留存随时间的变化，再把结果转化为可执行的运营建议。
+    </p>
+
+    <h2>2. 分析目标：要回答的三个问题</h2>
+    <ul>
+      <li>客户总体留存周期有多长？</li>
+      <li>不同服务类型下，流失风险是否显著不同？</li>
+      <li>把留存曲线转化为价值后，客户在 12/24/36 月分别值多少钱？</li>
+    </ul>
+
+    <h2>3. 数据与方法</h2>
+    <p>数据来自 Telco churn 场景，先完成清洗与建模字段准备，再按“描述 - 解释 - 价值”三层推进：</p>
     <ul>
       <li>分析数据集（Silver）规模：<strong>3351</strong></li>
-      <li>方法：Kaplan-Meier、Cox PH、AFT、CLV/NPV</li>
+      <li>描述层：Kaplan-Meier（总体与分组生存曲线）</li>
+      <li>解释层：Cox PH 与 AFT（识别风险驱动因素）</li>
+      <li>价值层：CLV / NPV（把生存概率转成经营价值）</li>
       <li>实现文件：<code>Q2_survival_analysis_rewrite.ipynb</code></li>
     </ul>
 
-    <h2>2. 生存分析流程</h2>
+    <h2>4. 分析过程（从现象到解释）</h2>
     <ul>
       <li>数据清洗与建模字段准备（含时间与事件定义）</li>
       <li>总体与分组 Kaplan-Meier 曲线及 log-rank 检验</li>
@@ -44,7 +59,7 @@
       <li>基于生存曲线进行 CLV 累计 NPV 估计</li>
     </ul>
 
-    <h2>3. 核心结果</h2>
+    <h2>5. 核心结果（可直接用于决策）</h2>
     <div class="box">
       <ul>
         <li>KM 中位生存时间：<strong>34.0 个月</strong></li>
@@ -53,8 +68,12 @@
         <li>CLV 累计 NPV（12/24/36 月）：<strong>320.31 / 589.49 / 818.84</strong></li>
       </ul>
     </div>
+    <p>
+      这组结果给出一个清晰信号：客户留存并非线性下降，不同服务分组之间存在显著差异，
+      且这种差异会持续放大到长期价值（CLV）上。
+    </p>
 
-    <h3>3.1 Kaplan-Meier 曲线</h3>
+    <h3>5.1 先看现象：Kaplan-Meier 曲线</h3>
     <div class="grid2">
       <figure>
         <img src="./figs/q2_km_population.png" alt="km population" />
@@ -65,8 +84,12 @@
         <figcaption>按 InternetService 分组的生存曲线。</figcaption>
       </figure>
     </div>
+    <p>
+      从分组曲线与 log-rank 结果可以确认：不同服务组的留存路径并不一致，
+      这说明后续做统一运营策略会损失效果，应该做分层运营。
+    </p>
 
-    <h3>3.2 Cox / AFT / CLV 结果图</h3>
+    <h3>5.2 再看解释：Cox / AFT / CLV 结果</h3>
     <div class="grid3">
       <figure>
         <img src="./figs/q2_cox_hazard_ratios.png" alt="cox hr" />
@@ -86,12 +109,23 @@
       <img src="./figs/q2_clv_survival_curve.png" alt="clv survival curve" />
       <figcaption>用于 CLV 估计的生存概率轨迹。</figcaption>
     </figure>
+    <p>
+      Cox/AFT 帮助定位“风险高低”，CLV 则回答“值不值得投入留存成本”。
+      两者结合后，策略不再是“谁容易流失就救谁”，而是“优先保住高风险且高价值人群”。
+    </p>
 
-    <h2>4. Q2(3) Text-to-SQL 补充</h2>
-    <p>在 MySQL + LLM 的实验中，主要失败类型包括：分位函数方言不兼容、加权中位数查询实现错误、MAD 双层中位数实现失败。最终均通过窗口函数改写得到可执行 SQL。</p>
+    <h2>6. 工程复盘：Text-to-SQL 的失败与修复</h2>
+    <p>
+      在 MySQL + LLM 环节，出现了三个高频问题：分位函数方言不兼容、加权中位数实现错误、MAD 双层中位数失败。
+      我最终都改写为 MySQL 可执行窗口函数版本，确保从“提问”到“可运行 SQL”形成闭环。
+    </p>
 
-    <h2>5. 结论</h2>
-    <p>Q2 已完成从生存曲线到风险建模再到价值估计的完整链路。业务上可据此识别高风险群体并制定差异化留存策略。</p>
+    <h2>7. 结论与行动建议</h2>
+    <ul>
+      <li>建立“分层留存”而非“一刀切”策略，按服务类型与风险等级分组运营。</li>
+      <li>将 Cox/AFT 风险评分与 CLV 联合使用，优先资源投向“高风险 + 高价值”客户。</li>
+      <li>将当前流程沉淀为月度监控看板：生存曲线、关键风险因子、分层 CLV 同步更新。</li>
+    </ul>
   </main>
 </body>
 </html>
