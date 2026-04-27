@@ -1,16 +1,21 @@
-#### Submitted
+#### 课程项目经历
 
-- <strong>S. Li</strong>*, X. Yang, S. M. Mousavi, A. Cao, K. Fan, Y. Liu, C. Wang, and Q. Niu. Learning Earthquake Wave Arrival Time Picking from Labels with Inaccuracies. <strong>Under Review</strong> [[Code]](https://github.com/senli1073/LaNCor)
+- **数据科学导论：Covid-19 的发展及影响因子研究**
+  - 基于全球 Covid-19 数据开展跨国对比与趋势分析，研究公共卫生条件、经济发展水平（如 HDI）、疫苗接种率与政策强度对感染率、死亡率和重症指标的影响。
+  - 通过热力图、KDE、箱线图等可视化与相关性分析总结关键影响因素，形成防控启示。
 
-#### Published
+- **数据结构与算法分析：Photoshop 智能套索功能 Java 实现**
+  - 阅读 Intelligent Scissors 相关论文并复现核心思路，基于梯度权重图完成动态路径搜索。
+  - 设计路径冷却机制（时间衰减函数）提升边缘吸附响应速度，最终交付支持 PNG/JPG 的 GUI 项目。
 
-- X. Yang, <strong>S. Li</strong>, A. Cao*, C. Wang*, Y. Liu, X. Bai, and Q. Niu (2024). Deep Transfer Learning for P-wave Arrival Identification and Automatic Seismic Source Location in Underground Mines. <strong>International Journal of Rock Mechanics and Mining Sciences</strong>. [[Paper]](https://doi.org/10.1016/j.ijrmms.2024.105888)
+- **网络科学与计算：伦敦轨道交通网络结构及鲁棒性分析**
+  - 基于官方数据构建地铁/地上铁/DLR 多层复合网络，完成拓扑指标统计、可视化与枢纽识别。
+  - 通过随机故障与定向攻击的节点移除仿真评估鲁棒性，得到“对随机故障较稳健、对枢纽攻击更敏感”的结论。
 
-- <strong>S. Li</strong>, X. Yang*, A. Cao*, C. Wang, Y. Liu, Y. Liu, and Q. Niu (2024). SeisT: A Foundational Deep-Learning Model for Earthquake Monitoring Tasks. <strong>IEEE Transactions on Geoscience and Remote Sensing</strong>. [[Paper]](https://doi.org/10.1109/TGRS.2024.3371503) [[Code]](https://github.com/senli1073/SeisT)
+- **高级自然语言处理：Educational Copilot**
+  - 基于 LangGraph 实现课程学习多智能体系统，将对话流程拆分为 Router、Student Profiler、Strategy、Tutor、Exercise、Profile Refiner 等模块。
+  - 在多轮交互中动态识别问题类型与学习状态，调整讲解难度并按需生成练习与参考答案；使用 Streamlit 构建类 ChatGPT 界面。
 
-- A. Cao, X. Yang, C. Wang*, <strong>S. Li</strong>, Y. Liu, L. Dou, and Q. Niu (2023). High-Precision Phase Picking and Automatic Source Locating Method for Seismicity in Mines Based on Deep Transfer Learning. <strong>Journal of China Coal Society</strong>. [[Paper]](https://doi.org/10.13225/j.cnki.jccs.2023.0095)
-
-- A. Cao, Y. Liu, X. Yang*, <strong>S. Li</strong>, C. Wang, X. Bai, and Y. Liu (2022). Physical Index and Data Fusion-Driven Method for Coal Burst Prediction in Time Sequence. <strong>Journal of China Coal Society</strong>. [[Paper]](https://doi.org/10.13225/j.cnki.jccs.2022.0680)
-
-- X. Yang, X. Yu, C. Zhang, <strong>S. Li</strong>, and Q. Niu (2021). MineGPS: Battery-Free Localization Base Station for Coal Mine Environment. <strong>IEEE Communications Letters</strong>. [[Paper]](https://doi.org/10.1109/LCOMM.2021.3081593)
-
+- **计算机程序设计基础：2048 游戏引擎 Java 实现**
+  - 独立开发带 GUI 的 2048 游戏，支持多模式、无限撤销、快捷键、失败/胜利锁盘等核心交互。
+  - 完成自动存档/读档、退出保存提示与 UI/音效增强，提升整体可玩性与可用性。

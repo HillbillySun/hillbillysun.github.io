@@ -1,17 +1,25 @@
+#### 联系方式
+电话：15198766365\
+邮箱：12311019@mail.sustech.edu.cn\
+地址：深圳
 
+#### 教育经历
+南方科技大学（SUSTech）\
+统计系，数据科学与大数据技术专业，2023.09 - 至今\
 
-[![senli1073](https://img.shields.io/badge/senli1073-github-blue?logo=github)](https://github.com/senli1073)
+核心课程：网络科学与计算、数据科学导论、概率论基础、数理统计、离散数学及其应用、数据结构与算法分析 B、计算机程序设计基础、自然语言处理
 
-He is currently a Fellow in the Department of Earth and Planetary Sciences (EPS) at Harvard University.
+#### 个人简介
+擅长数据驱动的端到端建模与工程落地，熟练使用 Python / Java，覆盖数据工程与可视化、时序分析与图网络分析，并能将算法实现为可用系统。当前系统学习大语言模型相关内容，持续阅读论文，具备机器学习、深度学习和强化学习基础，熟悉词嵌入、Transformer、AI Agent 框架、监督微调、DPO、GRPO、Scaling Law 等方法。
 
-#### Contact
+#### 技术与实践方向
+- 大模型与智能体系统：LangGraph、后训练流程、多智能体编排
+- 机器学习与深度学习：PyTorch 训练与评估、分类/回归建模、特征工程
+- 数据科学与网络分析：统计建模、可视化分析、鲁棒性评估、蒙特卡洛模拟
+- 工程实现：Java GUI 项目开发、完整 pipeline 搭建与交付
 
-Email: senli[at]fas.harvard.edu
-
-#### Education
-M.E., Computer Science and Technology, China University of Mining and Technology, 2022—2025.\
-B.E., Data Science and Big Data Technology, China University of Mining and Technology, 2018—2022.
-
-#### Research Interests
-Machine Learning for Seismology; Foundation Model; Observational Seismology; Microseismic Monitoring
-
+#### 社会实践与学生工作
+- 志愿服务累计时长 30+ 小时
+- 2024.11 参与“与邻同乐，律动青春”南山区 2024 邻里关爱进校区活动
+- 2024.01、2025.01 参与昆明市第一中学寒假母校行
+- 曾任书院新媒体中心摄影部部长、咖啡社社长
