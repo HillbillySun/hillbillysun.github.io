@@ -109,4 +109,98 @@ section .main-body{
     }
 }
 
+/* Moments cards */
+.moments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.2rem;
+    margin-top: 0.5rem;
+}
 
+.moment-card {
+    display: block;
+    background: #ffffff;
+    border: 1px solid #e6e9ef;
+    border-radius: 14px;
+    overflow: hidden;
+    text-decoration: none;
+    color: #1f2a44;
+    box-shadow: 0 10px 24px rgba(25, 38, 74, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.moment-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 28px rgba(25, 38, 74, 0.14);
+    color: #1f2a44;
+}
+
+.moment-card img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    display: block;
+}
+
+.moment-card-body {
+    padding: 0.9rem 1rem 1rem;
+}
+
+.moment-card-body h3 {
+    margin: 0 0 0.35rem;
+    font-size: 1.08rem;
+    line-height: 1.35;
+    font-weight: 700;
+}
+
+.moment-card-body p {
+    margin: 0 0 0.65rem;
+    line-height: 1.55;
+    font-size: 0.96rem;
+    color: #4a566d;
+}
+
+.moment-card-link {
+    display: inline-block;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #2f56d6;
+}
+
+/* Moments blog pages */
+.moment-blog-wrap {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 2.2rem 1.1rem 3rem;
+}
+
+.moment-blog-back {
+    display: inline-block;
+    margin-bottom: 0.8rem;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.moment-blog-title {
+    font-size: 2rem;
+    color: var(--h-title-color);
+    margin-bottom: 0.8rem;
+}
+
+.moment-blog-meta {
+    color: #65738a;
+    font-size: 0.96rem;
+    margin-bottom: 1.2rem;
+}
+
+.moment-blog-hero {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 1.3rem;
+}
+
+.moment-blog-content p {
+    line-height: 1.95;
+    font-size: 1.04rem;
+    color: #243349;
+}
