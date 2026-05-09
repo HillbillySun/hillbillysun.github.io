@@ -204,3 +204,25 @@ section .main-body{
     font-size: 1.04rem;
     color: #243349;
 }
+
+.moment-gallery-title {
+    margin: 1.1rem 0 0.75rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1f2a44;
+}
+
+.moment-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 0.75rem;
+}
+
+.moment-gallery img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #e7ebf2;
+    display: block;
+}
