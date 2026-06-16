@@ -6,6 +6,10 @@
   - 构建 Stage2-style relaxed 数据重构流程：rembg 去背景、主体裁剪、白底画布重排与尺度/位置扰动，将 5098 张原始训练图扩展为 11577 张白底风格样本。
   - 使用冻结 DINOv2-B/14 with registers 提取 CLS token + patch mean 特征，训练正则化 MLP probe，并结合 topK F1 early stopping、TTA 与 top90 概率排序提交，取得 Public F1 = 0.79545。
 
+- **高级自然语言处理：Educational Copilot**
+  - 基于 LangGraph 实现课程学习多智能体系统，将对话流程拆分为 Router、Student Profiler、Strategy、Tutor、Exercise、Profile Refiner 等模块。
+  - 在多轮交互中动态识别问题类型与学习状态，调整讲解难度并按需生成练习与参考答案；使用 Streamlit 构建类 ChatGPT 界面。
+
 - **数据科学导论：Covid-19 的发展及影响因子研究**
   - 基于全球 Covid-19 数据开展跨国对比与趋势分析，研究公共卫生条件、经济发展水平（如 HDI）、疫苗接种率与政策强度对感染率、死亡率和重症指标的影响。
   - 通过热力图、KDE、箱线图等可视化与相关性分析总结关键影响因素，形成防控启示。
@@ -17,10 +21,6 @@
 - **网络科学与计算：伦敦轨道交通网络结构及鲁棒性分析**
   - 基于官方数据构建地铁/地上铁/DLR 多层复合网络，完成拓扑指标统计、可视化与枢纽识别。
   - 通过随机故障与定向攻击的节点移除仿真评估鲁棒性，得到“对随机故障较稳健、对枢纽攻击更敏感”的结论。
-
-- **高级自然语言处理：Educational Copilot**
-  - 基于 LangGraph 实现课程学习多智能体系统，将对话流程拆分为 Router、Student Profiler、Strategy、Tutor、Exercise、Profile Refiner 等模块。
-  - 在多轮交互中动态识别问题类型与学习状态，调整讲解难度并按需生成练习与参考答案；使用 Streamlit 构建类 ChatGPT 界面。
 
 - **计算机程序设计基础：2048 游戏引擎 Java 实现**
   - 独立开发带 GUI 的 2048 游戏，支持多模式、无限撤销、快捷键、失败/胜利锁盘等核心交互。
