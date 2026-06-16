@@ -1,5 +1,11 @@
 #### 课程项目经历
 
+- **数据科学实践：2026 MTR 陨石图像分类（DINOv2 复现与泛化优化）**  
+  [GitHub](https://github.com/HillbillySun/meteorite-dinov2-repro) · [Final Report](static/assets/docs/meteorite-dinov2-final-report.pdf) · [HuggingFace](https://huggingface.co/Eki734/meteorite-dinov2-b14-direct) · [ModelScope](https://www.modelscope.cn/models/QiSunSiu/meteorite-dinov2-b14-direct)
+  - 面向 Meteorite Identification 二分类任务，针对原始训练图与白底测试图之间的 visual domain gap，分析尺子、标签纸、桌面等背景 shortcut 对线上泛化的影响。
+  - 构建 Stage2-style relaxed 数据重构流程：rembg 去背景、主体裁剪、白底画布重排与尺度/位置扰动，将 5098 张原始训练图扩展为 11577 张白底风格样本。
+  - 使用冻结 DINOv2-B/14 with registers 提取 CLS token + patch mean 特征，训练正则化 MLP probe，并结合 topK F1 early stopping、TTA 与 top90 概率排序提交，取得 Public F1 = 0.79545。
+
 - **数据科学导论：Covid-19 的发展及影响因子研究**
   - 基于全球 Covid-19 数据开展跨国对比与趋势分析，研究公共卫生条件、经济发展水平（如 HDI）、疫苗接种率与政策强度对感染率、死亡率和重症指标的影响。
   - 通过热力图、KDE、箱线图等可视化与相关性分析总结关键影响因素，形成防控启示。
